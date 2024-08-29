@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script>
+  // Initialize the agent on page load.
+  const fpPromise = import('https://fpjscdn.net/v3/ds5GrOP2WCOkUPxaZx3Q')
+    .then(FingerprintJS => FingerprintJS.load())
+
+  // Get the visitorId when you need it.
+  fpPromise
+    .then(fp => fp.get())
+    .then(result => {
+      const visitorId = result.visitorId
+      console.log(visitorId)
+    })
+</script>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
